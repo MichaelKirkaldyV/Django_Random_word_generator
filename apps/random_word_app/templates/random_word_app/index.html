@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Word App</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'random_word_app/css/style.css' %}">
+</head>
+<body>
+	<div class="container">
+		<h3>Random Word (Attempt {{request.session.count}})</h3>
+		<h4>{{rand_num}}</h4>
+		<a href="/generate">Generate</a>
+		<a href="/reset">Reset</a>
+	</div>
+
+
+</body>
+</html>
