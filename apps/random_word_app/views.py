@@ -13,14 +13,18 @@ def generator(request):
     if not 'count' in request.session:
     	request.session['count'] = 1
     else:
-    	request.session['count'] +=1	
+    	request.session['count'] +=1
 
-	context = {
-		#key must be in quotes
-		#creates a random string with a specified length of 14 characters 
-		"rand_word": get_random_string(length=14)
-	}
-	return render(request,'random_word_app/index.html', context)
+    #key must be in quotes
+	#creates a random string with a specified length of 14 characters 
+	#spacing caused a valueError (HTTPResponse/none)
+    context = {"rand_word": get_random_string(length=14)}
+
+    return render(request,'random_word_app/index.html', context)
+
+	
+	#key must be in quotes
+	#creates a random string with a specified length of 14 characters 
 
 def reset(request):
 		del request.session['count'] 
